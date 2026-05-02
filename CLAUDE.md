@@ -11,27 +11,49 @@
   - Без сборки, без компиляторов
   - Ограничения: нет `enum`, `namespace`, декораторов
 - **SDK**: пакет `openai` с кастомным `baseURL` (API совместим с OpenAI)
-- **Секреты**: `.env` файл, читается через `process.env` (Node 20.6+ поддерживает `--env-file`)
+- **Тесты**: `node:test` (встроенный, без зависимостей)
+- **Секреты**: `.env` файл в корне проекта, читается через `--env-file=.env`
 
 ## Структура
 
 Каждый эксперимент — отдельная папка внутри `experiments/`:
 
 ```
+.env              # API-ключ (в корне, не коммитить)
 experiments/
   01-basic-request/
-    index.ts
-    .env          # не коммитить
-    README.md     # описание эксперимента
-  02-function-calling/
+    index.ts           # демо-скрипт
+    index.test.ts      # тест (node:test)
+  02-context/
     ...
 ```
 
-## Запуск эксперимента
+## Запуск
 
 ```bash
-node --experimental-strip-types --env-file=.env index.ts
+# Один эксперимент
+node --experimental-strip-types --env-file=.env experiments/01-basic-request/index.ts
+
+# Все тесты
+node --experimental-strip-types --env-file=.env --test experiments/*/index.test.ts
 ```
+
+## API-конфигурация
+
+| Параметр          | Значение                                       |
+|-------------------|------------------------------------------------|
+| baseURL           | `https://ai.api.cloud.yandex.net/v1`           |
+| Формат модели     | `gpt://<folder_id>/<model>` (напр. `aliceai-llm`) |
+| folder_id         | `${process.env.FOLDER_ID}`                        |
+| Авторизация       | API-ключ передаётся как `apiKey` в OpenAI SDK  |
+| Сервисный аккаунт | `ai-studio-4aaac8`                             |
+
+### Встроенные инструменты
+
+- **Веб-поиск**: `type: "web_search"` (не `web_search_preview`)
+  - `search_context_size`: `low` | `medium` | `high`
+  - `filters.allowed_domains`: до 5 доменов
+  - Ответ содержит `annotations` с URL-источниками
 
 ## Yandex Cloud CLI
 
