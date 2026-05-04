@@ -6,8 +6,8 @@
 
 ## Технологии
 
-- **Runtime**: Node.js v22+ с нативной поддержкой TypeScript (`--experimental-strip-types`)
-  - Запуск: `node --experimental-strip-types index.ts`
+- **Runtime**: Node.js v22.12+ с нативной, но ограниченной поддержкой TypeScript (без флагов)
+  - Запуск: `node index.ts`
   - Без сборки, без компиляторов
   - Ограничения: нет `enum`, `namespace`, декораторов
 - **SDK**: пакет `openai` с кастомным `baseURL` (API совместим с OpenAI)
@@ -32,10 +32,10 @@ experiments/
 
 ```bash
 # Один эксперимент
-node --experimental-strip-types --env-file=.env experiments/01-basic-request/index.ts
+node --env-file=.env experiments/01-basic-request/index.ts
 
 # Все тесты
-node --experimental-strip-types --env-file=.env --test experiments/*/index.test.ts
+node --env-file=.env --test experiments/*/index.test.ts
 ```
 
 ## API-конфигурация
