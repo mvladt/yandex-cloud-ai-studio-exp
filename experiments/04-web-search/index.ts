@@ -1,6 +1,6 @@
 import OpenAI from 'openai'
 
-const FOLDER_ID = '${process.env.FOLDER_ID}'
+const FOLDER_ID = process.env.FOLDER_ID
 
 const client = new OpenAI({
   apiKey: process.env.API_KEY,

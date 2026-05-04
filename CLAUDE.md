@@ -44,7 +44,7 @@ node --experimental-strip-types --env-file=.env --test experiments/*/index.test.
 |-------------------|------------------------------------------------|
 | baseURL           | `https://ai.api.cloud.yandex.net/v1`           |
 | Формат модели     | `gpt://<folder_id>/<model>` (напр. `aliceai-llm`) |
-| folder_id         | `${process.env.FOLDER_ID}`                        |
+| folder_id         | из `.env` (`FOLDER_ID`)                           |
 | Авторизация       | API-ключ передаётся как `apiKey` в OpenAI SDK  |
 | Сервисный аккаунт | `ai-studio-4aaac8`                             |
 
