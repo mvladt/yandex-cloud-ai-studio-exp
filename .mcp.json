@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "yandex-cloud-docs": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@yandex-cloud/mcp", "-s", "docs", "--no-auth"]
+    }
+  }
+}
