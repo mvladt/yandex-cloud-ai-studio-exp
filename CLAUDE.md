@@ -40,13 +40,13 @@ node --env-file=.env --test experiments/*/index.test.ts
 
 ## API-конфигурация
 
-| Параметр          | Значение                                       |
-|-------------------|------------------------------------------------|
-| baseURL           | `https://ai.api.cloud.yandex.net/v1`           |
+| Параметр          | Значение                                          |
+| ----------------- | ------------------------------------------------- |
+| baseURL           | `https://ai.api.cloud.yandex.net/v1`              |
 | Формат модели     | `gpt://<folder_id>/<model>` (напр. `aliceai-llm`) |
 | folder_id         | из `.env` (`FOLDER_ID`)                           |
-| Авторизация       | API-ключ передаётся как `apiKey` в OpenAI SDK  |
-| Сервисный аккаунт | `ai-studio-4aaac8`                             |
+| Авторизация       | API-ключ передаётся как `apiKey` в OpenAI SDK     |
+| Сервисный аккаунт | `ai-studio-4aaac8`                                |
 
 ### Встроенные инструменты
 
